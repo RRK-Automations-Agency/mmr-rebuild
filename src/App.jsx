@@ -59,7 +59,7 @@ export default function App() {
     if (lenisRef.current) return;
 
     const lenis = new Lenis({
-      duration: 0.8,
+      duration: 0.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -88,7 +88,7 @@ export default function App() {
       y: 50,
       opacity: 0,
       stagger: 0.1,
-      duration: 0.5,
+      duration: 0.4,
       ease: 'power3.out',
       delay: 0.2
     });
@@ -105,7 +105,7 @@ export default function App() {
           x: item.x || 0,
           y: item.y || 0,
           opacity: 0,
-          duration: 0.6,
+          duration: 0.4,
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
@@ -123,7 +123,7 @@ export default function App() {
 
       gsap.to(obj, {
         value: targetValue,
-        duration: 2.5,
+        duration: 1.5,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: stat,
