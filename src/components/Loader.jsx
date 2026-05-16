@@ -6,15 +6,21 @@ export default function Loader() {
 
   useEffect(() => {
     const setInitial = setTimeout(() => setBarWidth(30), 100);
-
     const hide = () => {
       setBarWidth(100);
       setStatus('fading');
       setTimeout(() => setStatus('hidden'), 500);
     };
 
-    window.addEventListener('load', hide);
-    const fallback = setTimeout(hide, 3000);
+    // If the document already loaded before this component mounted, hide immediately.
+    if (document.readyState === 'complete') {
+      hide();
+    } else {
+      window.addEventListener('load', hide);
+    }
+
+    // Shorter fallback to avoid long blocking overlays on slow events.
+    const fallback = setTimeout(hide, 1200);
 
     return () => {
       clearTimeout(setInitial);

@@ -123,12 +123,19 @@ export default function App() {
 
     ScrollTrigger.refresh();
 
+    // Extra refresh calls to ensure ScrollTrigger calculates positions
+    // correctly after Lenis and images load. This prevents reveal
+    // animations leaving elements invisible on first visit.
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+    const refreshTimeout = setTimeout(() => ScrollTrigger.refresh(), 250);
+
     const handleLoad = () => {
       ScrollTrigger.refresh();
     };
     window.addEventListener('load', handleLoad);
 
     return () => {
+      clearTimeout(refreshTimeout);
       window.removeEventListener('load', handleLoad);
     };
   }, [location.pathname]);

@@ -7,7 +7,7 @@ import { coachGallery } from '../data/team.js';
 export default function About() {
   return (
     <>
-      <PageHeader title="Meet Your Coach" subtitle="National Gold Medalist | 4 Years Experience | Science-Based Training" />
+      <PageHeader className="page-header--large" title="Meet Your Coach" subtitle="National Gold Medalist | 4 Years Experience | Science-Based Training" />
 
       <section className="section-padding" id="about">
         <div className="container">

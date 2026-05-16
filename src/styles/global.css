@@ -38,6 +38,38 @@ html {
   width: 100%;
 }
 
+/* Ensure primary headers and hero content are visible on first paint.
+   This overrides any inline GSAP styles that may leave elements hidden. */
+header h1,
+.page-header .page-title,
+.hero-content > *,
+.hero h1,
+.reveal-text {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Reveal-class overrides: ensure reveal-up/left/right elements are visible
+   if GSAP/ScrollTrigger hasn't triggered yet (prevents entire page being hidden). */
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Make sure text color is high contrast in hero/header */
+header h1,
+.page-header .page-title,
+.hero h1 {
+  color: var(--accent) !important;
+  text-shadow: none !important;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-white);
@@ -148,6 +180,27 @@ p {
   .nav-links.mobile-active { padding-top: 6rem; }
 
   .hero-bg { background-position: center right; }
+}
+
+/* Left-align hero heading on mobile */
+@media (max-width: 768px) {
+  .hero .reveal-text,
+  .hero h1,
+  .hero .hero-content h1 {
+    text-align: left !important;
+    width: 100%;
+  }
+
+  .hero .hero-content {
+    align-self: flex-start;
+    padding-left: 0;
+  }
+
+  /* Slightly reduce hero title size on smaller phones */
+  @media (max-width: 480px) {
+    .hero .reveal-text,
+    .hero h1 { font-size: clamp(1.8rem, 9vw, 2.8rem) !important; }
+  }
 }
 
 /* Glassmorphism */
@@ -404,6 +457,14 @@ h1, h2, h3 {
 /* Page header responsive tweaks */
 .page-header .page-title {
   display: inline-block;
+  color: var(--accent);
+  font-weight: 900;
+  text-transform: uppercase;
+  /* make sure it's visible on initial load (avoid being hidden by reveal scripts) */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: none !important;
 }
 .page-header .page-title-word {
   display: inline-block;
@@ -421,6 +482,24 @@ h1, h2, h3 {
     margin: 0.2rem 0;
   }
   .page-header .page-subtitle { font-size: 0.95rem; }
+}
+
+/* Also apply one-word-per-line behavior on tablets and smaller phones */
+@media (max-width: 768px) {
+  .page-header .page-title-word { display: block; margin: 0.15rem 0; }
+  .page-header .page-title { font-size: clamp(2rem, 6.5vw, 2.8rem); }
+}
+
+/* Larger PageHeader variant for About page */
+.page-header--large .page-title {
+  font-size: clamp(3rem, 6.5vw, 5rem);
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 768px) {
+  .page-header--large .page-title {
+    font-size: clamp(2.2rem, 7.5vw, 2.8rem);
+  }
 }
 
 .hero .subtitle span::after {
