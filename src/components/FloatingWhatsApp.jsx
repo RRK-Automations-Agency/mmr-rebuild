@@ -1,3 +1,5 @@
+import { MessageCircle } from 'lucide-react';
+
 export default function FloatingWhatsApp() {
   return (
     <a
@@ -7,7 +9,7 @@ export default function FloatingWhatsApp() {
       className="floating-whatsapp btn-whatsapp btn"
       style={{ borderRadius: '50%', width: '60px', height: '60px', padding: 0 }}
     >
-      <i data-lucide="message-circle" style={{ width: '30px', height: '30px' }}></i>
+      <MessageCircle style={{ width: '30px', height: '30px' }} />
     </a>
   );
 }

@@ -1,3 +1,4 @@
+import { Award } from 'lucide-react';
 import PageHeader from '../components/PageHeader.jsx';
 import { certifications } from '../data/certifications.js';
 
@@ -14,7 +15,7 @@ export default function Certifications() {
                 <img src={cert.image} alt={cert.title} className="service-image" />
                 <div className="service-card-content">
                   <div className="service-icon">
-                    <i data-lucide="award"></i>
+                    <Award />
                   </div>
                   <h3>{cert.title}</h3>
                   <p>{cert.description}</p>

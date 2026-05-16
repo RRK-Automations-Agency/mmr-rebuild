@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { createIcons, Menu, X } from 'lucide';
+import { Menu, X } from 'lucide-react';
 
 export default function NavBar() {
   const location = useLocation();
@@ -24,10 +24,6 @@ export default function NavBar() {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    createIcons({ icons: { Menu, X } });
-  }, [isMenuOpen]);
 
   const navClassName = `${isScrolled || !isHome ? 'scrolled' : ''}`;
   const navLinksClassName = `nav-links ${isMenuOpen ? 'mobile-active' : ''}`;
@@ -68,7 +64,7 @@ export default function NavBar() {
           type="button"
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
-          <i data-lucide={isMenuOpen ? 'x' : 'menu'}></i>
+          {isMenuOpen ? <X /> : <Menu />}
         </button>
       </div>
     </nav>

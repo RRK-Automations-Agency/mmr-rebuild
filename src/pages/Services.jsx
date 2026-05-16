@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom';
+import { Zap, Scale, Sun, Dumbbell, Activity, Utensils, Box, Brain, Move, Trophy } from 'lucide-react';
 import PageHeader from '../components/PageHeader.jsx';
 import { adultServices, kidsServices } from '../data/services.js';
+
+const IconMap = {
+  zap: Zap,
+  scale: Scale,
+  sun: Sun,
+  dumbbell: Dumbbell,
+  activity: Activity,
+  utensils: Utensils,
+  box: Box,
+  brain: Brain,
+  move: Move,
+  trophy: Trophy
+};
 
 function ServiceCard({ item }) {
   return (
@@ -8,7 +22,7 @@ function ServiceCard({ item }) {
       <img src={item.image} alt={item.title} className="service-image" />
       <div className="service-card-content">
         <div className="service-icon">
-          <i data-lucide={item.icon}></i>
+          {IconMap[item.icon] ? (() => { const Icon = IconMap[item.icon]; return <Icon />; })() : null}
         </div>
         <h3>{item.title}</h3>
         <p>{item.description}</p>

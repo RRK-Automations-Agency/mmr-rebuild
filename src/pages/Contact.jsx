@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { ArrowRight, ArrowLeft, Loader2, Check } from 'lucide-react';
 import MessageToast from '../components/MessageToast.jsx';
 
 export default function Contact() {
@@ -177,7 +178,7 @@ export default function Contact() {
                 </div>
                 <div className="flex justify-end mt-4">
                   <button type="button" className="btn btn-primary next-step" onClick={handleNext}>
-                    Next Step <i data-lucide="arrow-right"></i>
+                    Next Step <ArrowRight />
                   </button>
                 </div>
               </div>
@@ -204,10 +205,10 @@ export default function Contact() {
                 </div>
                 <div className="flex justify-between mt-4">
                   <button type="button" className="btn btn-outline prev-step" onClick={handlePrev}>
-                    <i data-lucide="arrow-left"></i> Back
+                    <ArrowLeft /> Back
                   </button>
                   <button type="button" className="btn btn-primary next-step" onClick={handleNext}>
-                    Next Step <i data-lucide="arrow-right"></i>
+                    Next Step <ArrowRight />
                   </button>
                 </div>
               </div>
@@ -252,11 +253,11 @@ export default function Contact() {
                 </div>
                 <div className="flex justify-between mt-4">
                   <button type="button" className="btn btn-outline prev-step" onClick={handlePrev}>
-                    <i data-lucide="arrow-left"></i> Back
+                    <ArrowLeft /> Back
                   </button>
                   <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
                     {isSubmitting ? 'Sending...' : 'Submit Application'}{' '}
-                    <i data-lucide={isSubmitting ? 'loader-2' : 'check'} className={isSubmitting ? 'spin' : ''}></i>
+                    {isSubmitting ? <Loader2 className="spin" /> : <Check />}
                   </button>
                 </div>
               </div>

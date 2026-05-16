@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CheckCircle, Award } from 'lucide-react';
 import PageHeader from '../components/PageHeader.jsx';
 import { certifications } from '../data/certifications.js';
 import { coachGallery } from '../data/team.js';
@@ -28,10 +29,10 @@ export default function About() {
                 I don&apos;t believe in cookie-cutter programs. Whether your goal is to shatter a personal record or undergo a total body transformation, you receive a plan backed by professional certifications:
               </p>
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem' }}>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check-circle" className="text-accent"></i> <strong>Elite Expertise:</strong> National-level Gold Medalist in competitive sports.</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check-circle" className="text-accent"></i> <strong>Scientific Nutrition:</strong> Certified in Sports Nutrition and Thyroid Nutrition Mastery.</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check-circle" className="text-accent"></i> <strong>Diverse Skill Set:</strong> Expertise ranging from Powerlifting to Holistic Yoga.</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check-circle" className="text-accent"></i> <strong>Proven Results:</strong> 4 years of experience helping clients achieve peak results.</li>
+                <li className="mb-3 flex items-center gap-2"><CheckCircle className="text-accent" /> <strong>Elite Expertise:</strong> National-level Gold Medalist in competitive sports.</li>
+                <li className="mb-3 flex items-center gap-2"><CheckCircle className="text-accent" /> <strong>Scientific Nutrition:</strong> Certified in Sports Nutrition and Thyroid Nutrition Mastery.</li>
+                <li className="mb-3 flex items-center gap-2"><CheckCircle className="text-accent" /> <strong>Diverse Skill Set:</strong> Expertise ranging from Powerlifting to Holistic Yoga.</li>
+                <li className="mb-3 flex items-center gap-2"><CheckCircle className="text-accent" /> <strong>Proven Results:</strong> 4 years of experience helping clients achieve peak results.</li>
               </ul>
 
               <h3 className="mb-3 text-accent">Specialized Online Coaching</h3>
@@ -74,7 +75,7 @@ export default function About() {
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
             {certifications.map((cert) => (
               <div key={cert.title} className="glass-card p-4 text-center reveal-up">
-                <i data-lucide="award" className="text-accent mb-3" style={{ width: '40px', height: '40px', margin: '0 auto' }}></i>
+                <Award className="text-accent mb-3" style={{ width: '40px', height: '40px', margin: '0 auto', display: 'block' }} />
                 <h4>{cert.title}</h4>
               </div>
             ))}

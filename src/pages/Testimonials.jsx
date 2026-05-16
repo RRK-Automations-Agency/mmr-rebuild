@@ -1,3 +1,4 @@
+import { Star } from 'lucide-react';
 import { testimonials } from '../data/testimonials.js';
 
 export default function Testimonials() {
@@ -22,9 +23,9 @@ export default function Testimonials() {
                   <div className="avatar">{item.initials}</div>
                   <div>
                     <h4 className="m-0">{item.name}</h4>
-                    <div className="text-accent">
+                    <div className="text-accent flex gap-1">
                       {Array.from({ length: item.rating }).map((_, index) => (
-                        <i key={`${item.name}-star-${index}`} data-lucide="star" className="filled-star"></i>
+                        <Star key={`${item.name}-star-${index}`} className="filled-star" />
                       ))}
                     </div>
                   </div>

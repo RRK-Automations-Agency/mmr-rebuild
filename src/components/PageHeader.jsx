@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function PageHeader({ title, subtitle, children }) {
+export default function PageHeader({ title, subtitle = null, children = null }) {
   return (
     <header className="section-padding" style={{ paddingTop: '150px', background: '#0a0a0a', borderBottom: '1px solid #111' }}>
       <div className="container text-center">
@@ -18,9 +18,4 @@ PageHeader.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   children: PropTypes.node
-};
-
-PageHeader.defaultProps = {
-  subtitle: null,
-  children: null
 };

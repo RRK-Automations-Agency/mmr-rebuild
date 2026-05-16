@@ -1,9 +1,9 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
-import * as lucide from 'lucide';
+
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
 import FloatingWhatsApp from './components/FloatingWhatsApp.jsx';
@@ -25,35 +25,7 @@ export default function App() {
   const lenisRef = useRef(null);
   const cursorRef = useRef({ cursor: null, dot: null });
 
-  const icons = useMemo(() => ({
-    Menu: lucide.Menu,
-    X: lucide.X,
-    ArrowRight: lucide.ArrowRight,
-    ArrowLeft: lucide.ArrowLeft,
-    Check: lucide.Check,
-    Zap: lucide.Zap,
-    TrendingDown: lucide.TrendingDown,
-    Dumbbell: lucide.Dumbbell,
-    Activity: lucide.Activity,
-    Utensils: lucide.Utensils,
-    Trophy: lucide.Trophy,
-    Award: lucide.Award,
-    MessageCircle: lucide.MessageCircle,
-    Instagram: lucide.Instagram,
-    Facebook: lucide.Facebook,
-    Twitter: lucide.Twitter,
-    Youtube: lucide.Youtube,
-    Send: lucide.Send,
-    CheckCircle: lucide.CheckCircle,
-    Star: lucide.Star,
-    Scale: lucide.Scale,
-    Sun: lucide.Sun,
-    Box: lucide.Box,
-    Brain: lucide.Brain,
-    Move: lucide.Move,
-    AlertCircle: lucide.AlertCircle,
-    Loader2: lucide.Loader2
-  }), []);
+
 
   useEffect(() => {
     if (lenisRef.current) return;
@@ -80,7 +52,6 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    lucide.createIcons({ icons });
 
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
@@ -151,7 +122,16 @@ export default function App() {
     }
 
     ScrollTrigger.refresh();
-  }, [location.pathname, icons]);
+
+    const handleLoad = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     if (window.innerWidth <= 1024 || cursorRef.current.cursor) return;

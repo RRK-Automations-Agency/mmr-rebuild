@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { createIcons, CheckCircle, AlertCircle, X } from 'lucide';
+import { CheckCircle, AlertCircle, X } from 'lucide-react';
 
 export default function MessageToast({ message, type, onClose }) {
   useEffect(() => {
-    createIcons({ icons: { CheckCircle, AlertCircle, X } });
-
     const timer = setTimeout(() => {
       onClose();
     }, 5000);
@@ -33,7 +31,7 @@ export default function MessageToast({ message, type, onClose }) {
       }}
     >
       <div className="message-content" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <i data-lucide={type === 'success' ? 'check-circle' : 'alert-circle'}></i>
+        {type === 'success' ? <CheckCircle /> : <AlertCircle />}
         <span>{message}</span>
       </div>
       <button
@@ -42,7 +40,7 @@ export default function MessageToast({ message, type, onClose }) {
         type="button"
         onClick={onClose}
       >
-        <i data-lucide="x"></i>
+        <X />
       </button>
     </div>
   );

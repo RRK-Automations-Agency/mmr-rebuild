@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MessageCircle, Check } from 'lucide-react';
 import Loader from '../components/Loader.jsx';
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
                 Explore Programs
               </Link>
               <a href="https://wa.me/919014045934" target="_blank" rel="noreferrer" className="btn btn-whatsapp">
-                <i data-lucide="message-circle"></i> WhatsApp
+                <MessageCircle /> WhatsApp
               </a>
             </div>
           </div>
@@ -107,12 +108,12 @@ export default function Home() {
                 <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹9,999/-</div>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Weekly Check-ins</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
               </ul>
               <Link to="/contact" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
                 Get Started
@@ -144,12 +145,12 @@ export default function Home() {
                 <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹24,999/-</div>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Weekly Check-ins</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
               </ul>
               <Link to="/contact" className="btn btn-primary" style={{ width: '100%', textAlign: 'center' }}>
                 Get Started
@@ -162,12 +163,12 @@ export default function Home() {
                 <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹49,999/-</div>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Weekly Check-ins</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
               </ul>
               <Link to="/contact" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
                 Get Started
@@ -180,12 +181,12 @@ export default function Home() {
                 <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹79,999/-</div>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><i data-lucide="check" className="text-accent" style={{ width: '18px' }}></i> Weekly Check-ins</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
+                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
               </ul>
               <Link to="/contact" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
                 Get Started
