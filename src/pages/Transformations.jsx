@@ -14,7 +14,7 @@ export default function Transformations() {
                 <img
                   src={item.image}
                   alt={`${item.name} Transformation`}
-                  style={{ width: '100%', height: '500px', objectFit: 'contain', background: '#000' }}
+                  style={{ width: '100%', height: '500px', objectFit: 'cover', objectPosition: 'top center', background: '#000' }}
                 />
                 <div className="p-4">
                   <h4 className="text-accent">{item.name}</h4>

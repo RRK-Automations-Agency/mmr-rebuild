@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { CheckCircle, Award } from 'lucide-react';
 import PageHeader from '../components/PageHeader.jsx';
 import { certifications } from '../data/certifications.js';
-import { coachGallery } from '../data/team.js';
 
 export default function About() {
   return (
@@ -42,26 +41,6 @@ export default function About() {
                 Ready to Start Your Transformation?
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding" style={{ background: '#080808' }}>
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2 className="text-accent">Coach Highlights</h2>
-            <p>Focused training moments from the Fit FUTURE studio.</p>
-          </div>
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-            {coachGallery.map((item) => (
-              <div key={item.image} className="glass-card overflow-hidden reveal-up">
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  style={{ width: '100%', height: '380px', objectFit: 'cover', background: '#000' }}
-                />
-              </div>
-            ))}
           </div>
         </div>
       </section>

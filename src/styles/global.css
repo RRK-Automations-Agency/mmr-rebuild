@@ -27,40 +27,14 @@
 }
 
 /* Make media elements responsive by default */
-img, picture, video, svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+
 html {
   scroll-behavior: initial;
   overflow-x: hidden;
   width: 100%;
 }
 
-/* Ensure primary headers and hero content are visible on first paint.
-   This overrides any inline GSAP styles that may leave elements hidden. */
-header h1,
-.page-header .page-title,
-.hero-content > *,
-.hero h1,
-.reveal-text {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  filter: none !important;
-}
 
-/* Reveal-class overrides: ensure reveal-up/left/right elements are visible
-   if GSAP/ScrollTrigger hasn't triggered yet (prevents entire page being hidden). */
-.reveal-up,
-.reveal-left,
-.reveal-right,
-.reveal {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
 
 /* Make sure text color is high contrast in hero/header */
 header h1,
@@ -216,6 +190,15 @@ p {
 .glass-card:hover {
   border-color: var(--accent);
   box-shadow: 0 10px 40px -10px rgba(69, 240, 181, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Image hover scaling */
+.glass-card img {
+  transition: transform var(--transition-medium);
+}
+.glass-card img:hover {
+  transform: scale(1.05);
 }
 
 /* Buttons */
@@ -460,11 +443,6 @@ h1, h2, h3 {
   color: var(--accent);
   font-weight: 900;
   text-transform: uppercase;
-  /* make sure it's visible on initial load (avoid being hidden by reveal scripts) */
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  transition: none !important;
 }
 .page-header .page-title-word {
   display: inline-block;
@@ -563,10 +541,16 @@ h1, h2, h3 {
   position: relative;
   border-radius: 30px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
@@ -600,9 +584,12 @@ h1, h2, h3 {
 
 .service-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
+  object-position: top center;
   border-bottom: 1px solid var(--glass-border);
+  display: block;
+  margin: auto;
 }
 
 .service-card-content {
