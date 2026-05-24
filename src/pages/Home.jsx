@@ -2,6 +2,50 @@ import { Link } from 'react-router-dom';
 import { MessageCircle, Check } from 'lucide-react';
 import Loader from '../components/Loader.jsx';
 
+const pricingPlans = [
+  {
+    duration: '1 Month',
+    price: '₹9,999/-',
+    features: ['Nutrition Plan', 'Workout Plan', 'Workout Video Explanation'],
+    buttonClass: 'btn btn-outline'
+  },
+  {
+    duration: '3 Months',
+    price: '₹24,999/-',
+    features: ['Nutrition Plan', 'Workout Plan', 'Workout Video Explanation', '24/7 Chat Support'],
+    popular: true,
+    buttonClass: 'btn btn-primary'
+  },
+  {
+    duration: '6 Months',
+    price: '₹49,999/-',
+    features: [
+      'Nutrition Plan',
+      'Workout Plan',
+      'Workout Video Explanation',
+      '24/7 Chat Support',
+      'Supplements Guidance',
+      'Weekly Check-ins'
+    ],
+    buttonClass: 'btn btn-outline'
+  },
+  {
+    duration: '12 Months',
+    price: '₹79,999/-',
+    features: [
+      'Nutrition Plan',
+      'Workout Plan',
+      'Workout Video Explanation',
+      '24/7 Chat Support',
+      'Supplements Guidance',
+      'Weekly Check-ins',
+      'Priority Support',
+      'Monthly Progress Review'
+    ],
+    buttonClass: 'btn btn-outline'
+  }
+];
+
 export default function Home() {
   return (
     <>
@@ -102,96 +146,51 @@ export default function Home() {
           </div>
 
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-            <div className="glass-card p-4 reveal-up" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div className="text-center mb-4">
-                <h3 className="mb-2">1 Month</h3>
-                <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹9,999/-</div>
-              </div>
-              <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
-              </ul>
-              <Link to="/contact" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
-                Get Started
-              </Link>
-            </div>
-
-            <div
-              className="glass-card p-4 reveal-up"
-              style={{ display: 'flex', flexDirection: 'column', borderColor: 'var(--accent)', position: 'relative' }}
-            >
+            {pricingPlans.map((plan) => (
               <div
+                key={plan.duration}
+                className="glass-card p-4 reveal-up"
                 style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  background: 'var(--accent)',
-                  color: '#000',
-                  padding: '0.2rem 1rem',
-                  borderRadius: '20px',
-                  fontWeight: 'bold',
-                  fontSize: '0.8rem'
+                  display: 'flex',
+                  flexDirection: 'column',
+                  borderColor: plan.popular ? 'var(--accent)' : undefined,
+                  position: 'relative'
                 }}
               >
-                POPULAR
+                {plan.popular ? (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      background: 'var(--accent)',
+                      color: '#000',
+                      padding: '0.2rem 1rem',
+                      borderRadius: '20px',
+                      fontWeight: 'bold',
+                      fontSize: '0.8rem'
+                    }}
+                  >
+                    POPULAR
+                  </div>
+                ) : null}
+                <div className={`text-center mb-4 ${plan.popular ? 'mt-2' : ''}`}>
+                  <h3 className="mb-2">{plan.duration}</h3>
+                  <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>{plan.price}</div>
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="mb-3 flex items-center gap-2">
+                      <Check className="text-accent" style={{ width: '18px' }} /> {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/contact" className={plan.buttonClass} style={{ width: '100%', textAlign: 'center' }}>
+                  Get Started
+                </Link>
               </div>
-              <div className="text-center mb-4 mt-2">
-                <h3 className="mb-2">3 Months</h3>
-                <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹24,999/-</div>
-              </div>
-              <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
-              </ul>
-              <Link to="/contact" className="btn btn-primary" style={{ width: '100%', textAlign: 'center' }}>
-                Get Started
-              </Link>
-            </div>
-
-            <div className="glass-card p-4 reveal-up" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div className="text-center mb-4">
-                <h3 className="mb-2">6 Months</h3>
-                <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹49,999/-</div>
-              </div>
-              <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
-              </ul>
-              <Link to="/contact" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
-                Get Started
-              </Link>
-            </div>
-
-            <div className="glass-card p-4 reveal-up" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div className="text-center mb-4">
-                <h3 className="mb-2">12 Months</h3>
-                <div className="text-accent" style={{ fontSize: '2.5rem', fontWeight: 800 }}>₹79,999/-</div>
-              </div>
-              <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem', flexGrow: 1 }}>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Nutrition Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Plan</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Workout Video Explanation</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> 24/7 Chat Support</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Supplements Guidance</li>
-                <li className="mb-3 flex items-center gap-2"><Check className="text-accent" style={{ width: '18px' }} /> Weekly Check-ins</li>
-              </ul>
-              <Link to="/contact" className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
-                Get Started
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
